@@ -1,16 +1,7 @@
-import express from "express";
-const app = express();
+import app from "./app.js";
+import {env} from "./config/env.js";
 
-app.use(express.json());
-
-app.get("/api/health", (req, res) => {
-  res.send({
-     success: true,
-     message: "TaskFlow API is running test",
-  });
-});
-
-const PORT = process.env.PORT || 5000;
+const PORT = env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 }); 
